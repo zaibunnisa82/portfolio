@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Domains | Zaib Un Nisa</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f7f3ff, #eef7ff);
+      color: #243047;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #5d3fd3;
+    }
+
+    nav a {
+      text-decoration: none;
+      margin-left: 22px;
+      color: #243047;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #5d3fd3;
+    }
+
+    .hero {
+      padding: 90px 8% 70px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(93, 63, 211, 0.14);
+      top: 30px;
+      left: -80px;
+      filter: blur(10px);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      background: rgba(0, 174, 255, 0.15);
+      right: -60px;
+      bottom: 10px;
+      filter: blur(10px);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 9px 18px;
+      background: #ffffff;
+      border-radius: 30px;
+      color: #5d3fd3;
+      font-weight: 600;
+      box-shadow: 0 8px 25px rgba(93, 63, 211, 0.12);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      color: #1f2544;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      color: #5d3fd3;
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #5f6880;
+    }
+
+    .section {
+      padding: 55px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      color: #1f2544;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #6b7280;
+      font-size: 16px;
+    }
+
+    .domains-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .domain-card {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 24px;
+      padding: 30px;
+      min-height: 290px;
+      box-shadow: 0 18px 45px rgba(40, 50, 90, 0.09);
+      border: 1px solid rgba(255,255,255,0.9);
+      transition: 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .domain-card::before {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: rgba(93, 63, 211, 0.12);
+      top: -25px;
+      right: -25px;
+    }
+
+    .domain-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 60px rgba(93, 63, 211, 0.18);
+    }
+
+    .icon {
+      width: 62px;
+      height: 62px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #5d3fd3, #00aaff);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 22px;
+      box-shadow: 0 12px 25px rgba(93, 63, 211, 0.25);
+    }
+
+    .domain-card h3 {
+      font-size: 22px;
+      margin-bottom: 14px;
+      color: #1f2544;
+    }
+
+    .domain-card p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #626b80;
+      margin-bottom: 18px;
+    }
+
+    .keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .keywords span {
+      font-size: 12px;
+      padding: 7px 12px;
+      border-radius: 20px;
+      background: #f0ecff;
+      color: #5d3fd3;
+      font-weight: 600;
+    }
+
+    .focus-box {
+      margin-top: 35px;
+      background: linear-gradient(135deg, #5d3fd3, #2da8ff);
+      color: white;
+      border-radius: 28px;
+      padding: 42px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 30px;
+      align-items: center;
+      box-shadow: 0 24px 60px rgba(93, 63, 211, 0.25);
+    }
+
+    .focus-box h2 {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .focus-box p {
+      line-height: 1.8;
+      opacity: 0.95;
+    }
+
+    .focus-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .focus-list div {
+      background: rgba(255,255,255,0.18);
+      padding: 14px 18px;
+      border-radius: 16px;
+      backdrop-filter: blur(8px);
+      font-weight: 500;
+    }
+
+    .tools-section {
+      padding: 60px 8%;
+    }
+
+    .tools-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .tool {
+      background: white;
+      padding: 13px 20px;
+      border-radius: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+      color: #384057;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .tool:hover {
+      background: #5d3fd3;
+      color: white;
+      transform: translateY(-4px);
+    }
+
+    .cta {
+      margin: 40px 8% 70px;
+      text-align: center;
+      background: white;
+      border-radius: 28px;
+      padding: 45px 30px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    }
+
+    .cta h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #1f2544;
+    }
+
+    .cta p {
+      color: #6b7280;
+      margin-bottom: 25px;
+      line-height: 1.7;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 30px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #5d3fd3, #00aaff);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 12px 25px rgba(93, 63, 211, 0.25);
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 35px rgba(93, 63, 211, 0.35);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #6b7280;
+      background: #ffffff;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 8px;
+        font-size: 14px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .focus-box {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Zaib Un Nisa</div>
+    <nav>
+      <a href="index.html">Home</a>
+        <a href="research_domain.html"class="active">Research Domains</a>
+        <a href="publications.html">Publications</a>
+        <a href="my_journey4.html">My Journey</a>
+        <a href="scholarly-services.html">Scholarly Services</a>
+        <a href="acheivements.html">Achievements</a>
+        <a href="abtMe.html">About Me</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="tag">Research Interests & Scientific Focus</div>
+      <h1>My Research <span>Domains</span></h1>
+      <p>
+        My research lies at the intersection of artificial intelligence, biomedical signal processing,
+        healthcare analytics, and trustworthy machine learning. I focus on developing intelligent systems
+        that can support clinical decision-making, improve diagnosis, and enable privacy-preserving
+        healthcare research.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <h2>Core Research Areas</h2>
+      <p>Key domains shaping my academic and applied research journey</p>
+    </div>
+
+    <div class="domains-grid">
+
+      <div class="domain-card">
+        <div class="icon">🧠</div>
+        <h3>EEG Signal Processing</h3>
+        <p>
+          Analysis of brain activity using EEG signals for neurological disorder detection,
+          harmful brain activity classification, and brain-computer intelligence.
+        </p>
+        <div class="keywords">
+          <span>EEG</span>
+          <span>MFCC</span>
+          <span>STFT</span>
+          <span>Brain Signals</span>
+        </div>
+      </div>
+
+      <div class="domain-card">
+        <div class="icon">🤖</div>
+        <h3>Deep Learning for Healthcare</h3>
+        <p>
+          Designing AI models for medical diagnosis, biomedical image analysis,
+          and automated disease classification using advanced neural architectures.
+        </p>
+        <div class="keywords">
+          <span>CNN</span>
+          <span>EfficientNet</span>
+          <span>Attention</span>
+          <span>Healthcare AI</span>
+        </div>
+      </div>
+
+      <div class="domain-card">
+        <div class="icon">⚕️</div>
+        <h3>AI for Clinical Decision Support</h3>
+        <p>
+          Building intelligent systems that assist clinicians through predictive analytics,
+          risk estimation, and interpretable decision-support frameworks.
+        </p>
+        <div class="keywords">
+          <span>Diagnosis</span>
+          <span>Prediction</span>
+          <span>Risk Analysis</span>
+          <span>CDSS</span>
+        </div>
+      </div>
+
+      <div class="domain-card">
+        <div class="icon">🔐</div>
+        <h3>Federated Learning</h3>
+        <p>
+          Exploring privacy-preserving machine learning methods for healthcare data,
+          enabling collaborative model training without direct data sharing.
+        </p>
+        <div class="keywords">
+          <span>Privacy</span>
+          <span>FL</span>
+          <span>Medical Data</span>
+          <span>Secure AI</span>
+        </div>
+      </div>
+
+      <div class="domain-card">
+        <div class="icon">🫀</div>
+        <h3>Cardiovascular Intelligence</h3>
+        <p>
+          Applying machine learning and digital twin concepts to cardiovascular data,
+          treatment response modelling, and patient-specific healthcare prediction.
+        </p>
+        <div class="keywords">
+          <span>ECG</span>
+          <span>CVD</span>
+          <span>Digital Twin</span>
+          <span>Treatment Effect</span>
+        </div>
+      </div>
+
+      <div class="domain-card">
+        <div class="icon">🔍</div>
+        <h3>Explainable & Trustworthy AI</h3>
+        <p>
+          Developing interpretable AI models that provide transparency, certainty estimation,
+          and clinically meaningful explanations for medical predictions.
+        </p>
+        <div class="keywords">
+          <span>XAI</span>
+          <span>Certainty</span>
+          <span>Trustworthy AI</span>
+          <span>Interpretability</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="focus-box">
+      <div>
+        <h2>Research Vision</h2>
+        <p>
+          My long-term research vision is to develop reliable, explainable, and privacy-preserving
+          AI systems for healthcare. I aim to bridge biomedical data, machine learning, and clinical
+          relevance to support safer and more intelligent medical technologies.
+        </p>
+      </div>
+
+      <div class="focus-list">
+        <div>✔ AI-powered neurological disorder detection</div>
+        <div>✔ Privacy-preserving healthcare models</div>
+        <div>✔ Digital twin systems for patient modelling</div>
+        <div>✔ Explainable clinical decision support</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tools-section">
+    <div class="section-title">
+      <h2>Methods & Technologies</h2>
+      <p>Research tools, algorithms, and techniques I work with</p>
+    </div>
+
+    <div class="tools-grid">
+      <div class="tool">Python</div>
+      <div class="tool">TensorFlow</div>
+      <div class="tool">PyTorch</div>
+      <div class="tool">Signal Processing</div>
+      <div class="tool">Biomedical AI</div>
+      <div class="tool">MFCC</div>
+      <div class="tool">STFT</div>
+      <div class="tool">CNN Models</div>
+      <div class="tool">Attention Mechanisms</div>
+      <div class="tool">Federated Learning</div>
+      <div class="tool">Digital Twin</div>
+      <div class="tool">Explainable AI</div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Research Driven by Impact</h2>
+    <p>
+      My work is focused on transforming complex biomedical data into intelligent,
+      trustworthy, and clinically useful AI solutions.
+    </p>
+    <a href="index.html" class="btn">← Back to Portfolio</a>
+  </section>
+
+  <footer>
+    © 2026 Zaib Un Nisa | Research Domains
+  </footer>
+
+</body>
+</html>
