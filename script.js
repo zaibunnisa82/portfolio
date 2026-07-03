@@ -2,7 +2,7 @@ console.log("JavaScript loaded!");
 
 const images = [
     "images/profile.jpeg",
-    "images/G3.png",
+    "images/gold.jpeg",
     "images/conv.png",
     "images/Conf.jpeg",
     "images/Conf3.png",
