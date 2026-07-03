@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Profile | Zaib Un Nisa</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f8f5ff, #eef8ff);
+      color: #243047;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.78);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      color: #5d3fd3;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #263047;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #5d3fd3;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 50px;
+      padding: 80px 8%;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      background: rgba(93,63,211,0.13);
+      border-radius: 50%;
+      top: 60px;
+      left: -120px;
+      filter: blur(8px);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(0,170,255,0.16);
+      border-radius: 50%;
+      right: -90px;
+      bottom: 40px;
+      filter: blur(8px);
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 30px;
+      background: white;
+      color: #5d3fd3;
+      font-weight: 700;
+      margin-bottom: 22px;
+      box-shadow: 0 10px 25px rgba(93,63,211,0.13);
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      line-height: 1.15;
+      color: #1f2544;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: #5d3fd3;
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.85;
+      color: #5f6880;
+      max-width: 700px;
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 2;
+      background: rgba(255,255,255,0.9);
+      border-radius: 35px;
+      padding: 38px;
+      box-shadow: 0 25px 70px rgba(40,50,90,0.14);
+      border: 1px solid rgba(255,255,255,0.9);
+    }
+
+    .profile-circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      margin: 0 auto 25px;
+      background: linear-gradient(135deg, #5d3fd3, #00aaff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 68px;
+      color: white;
+      box-shadow: 0 18px 45px rgba(93,63,211,0.3);
+    }
+
+    .hero-card h2 {
+      text-align: center;
+      font-size: 28px;
+      color: #1f2544;
+      margin-bottom: 10px;
+    }
+
+    .hero-card p {
+      text-align: center;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+   
+%%%%%%%%%%%%%%%%%%%%%%
+    .profile-circle{
+        width:220px;
+        height:220px;
+        margin:0 auto 25px;
+        border-radius:50%;
+        overflow:hidden;
+        border:6px solid white;
+        box-shadow:0 15px 40px rgba(93,63,211,.35);
+        background:#fff;
+    }
+
+     .profile-circle img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:center 15%;
+        display:block;
+        transition:.5s;
+    }
+
+    .profile-circle:hover img{
+    transform:scale(1.05);
+    }
+
+    .mini-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 22px;
+    }
+
+    .mini-tags span {
+      background: #f0ecff;
+      color: #5d3fd3;
+      padding: 8px 13px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .section {
+      padding: 65px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      color: #1f2544;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #6b7280;
+      font-size: 16px;
+    }
+
+    .timeline {
+      max-width: 900px;
+      margin: auto;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(#5d3fd3, #00aaff);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 20px;
+    }
+
+    .timeline-item {
+      width: 50%;
+      padding: 20px 35px;
+      position: relative;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .timeline-content {
+      background: white;
+      padding: 24px;
+      border-radius: 22px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .timeline-content:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 22px 50px rgba(93,63,211,0.17);
+    }
+
+    .timeline-content h3 {
+      color: #5d3fd3;
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .timeline-content p {
+      color: #626b80;
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    .dot {
+      width: 20px;
+      height: 20px;
+      background: #5d3fd3;
+      border: 4px solid white;
+      border-radius: 50%;
+      position: absolute;
+      top: 42px;
+      box-shadow: 0 0 0 5px rgba(93,63,211,0.15);
+    }
+
+    .timeline-item:nth-child(odd) .dot {
+      right: -10px;
+    }
+
+    .timeline-item:nth-child(even) .dot {
+      left: -10px;
+    }
+
+    .philosophy {
+      background: linear-gradient(135deg, #5d3fd3, #00aaff);
+      border-radius: 35px;
+      padding: 55px;
+      color: white;
+      box-shadow: 0 25px 65px rgba(93,63,211,0.25);
+      max-width: 1050px;
+      margin: auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .philosophy::after {
+      content: "“";
+      position: absolute;
+      font-size: 210px;
+      right: 35px;
+      top: -35px;
+      opacity: 0.12;
+      font-family: serif;
+    }
+
+    .philosophy h2 {
+      font-size: 34px;
+      margin-bottom: 18px;
+    }
+
+    .philosophy p {
+      font-size: 18px;
+      line-height: 1.9;
+      max-width: 850px;
+    }
+
+    .interests {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .interest {
+      padding: 14px 22px;
+      background: white;
+      border-radius: 30px;
+      font-weight: 700;
+      color: #384057;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+      transition: 0.3s;
+    }
+
+    .interest:hover {
+      background: #5d3fd3;
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 22px;
+    }
+
+    .stat-card {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 24px;
+      text-align: center;
+      box-shadow: 0 16px 42px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 22px 55px rgba(93,63,211,0.17);
+    }
+
+    .stat-card h3 {
+      font-size: 36px;
+      color: #5d3fd3;
+      margin-bottom: 8px;
+    }
+
+    .stat-card p {
+      color: #626b80;
+      font-weight: 600;
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .focus-card {
+      background: rgba(255,255,255,0.88);
+      padding: 30px;
+      border-radius: 26px;
+      box-shadow: 0 18px 45px rgba(40,50,90,0.09);
+      transition: 0.35s;
+      border: 1px solid rgba(255,255,255,0.9);
+    }
+
+    .focus-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 60px rgba(93,63,211,0.18);
+    }
+
+    .focus-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #5d3fd3, #00aaff);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .focus-card h3 {
+      color: #1f2544;
+      margin-bottom: 12px;
+      font-size: 21px;
+    }
+
+    .focus-card p {
+      color: #626b80;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .roadmap {
+      max-width: 850px;
+      margin: auto;
+      background: white;
+      padding: 40px;
+      border-radius: 30px;
+      box-shadow: 0 20px 55px rgba(0,0,0,0.08);
+    }
+
+    .road-step {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      padding: 18px 0;
+      border-bottom: 1px solid #edf0f7;
+    }
+
+    .road-step:last-child {
+      border-bottom: none;
+    }
+
+    .road-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #5d3fd3, #00aaff);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .road-step h3 {
+      color: #1f2544;
+      margin-bottom: 4px;
+    }
+
+    .road-step p {
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    .cta {
+      margin: 50px 8% 75px;
+      background: #ffffff;
+      border-radius: 35px;
+      padding: 55px 35px;
+      text-align: center;
+      box-shadow: 0 25px 65px rgba(0,0,0,0.09);
+    }
+
+    .cta h2 {
+      font-size: 36px;
+      color: #1f2544;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: #626b80;
+      line-height: 1.8;
+      max-width: 760px;
+      margin: 0 auto 28px;
+      font-size: 17px;
+    }
+
+    .quote {
+      margin-top: 35px;
+      font-size: 20px;
+      color: #5d3fd3;
+      font-weight: 700;
+      line-height: 1.7;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      background: linear-gradient(135deg, #5d3fd3, #00aaff);
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 12px 30px rgba(93,63,211,0.28);
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(93,63,211,0.35);
+    }
+
+    footer {
+      background: white;
+      text-align: center;
+      padding: 25px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        margin: 6px;
+        display: inline-block;
+      }
+
+      header {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding-left: 55px;
+        padding-right: 0;
+      }
+
+      .timeline-item .dot {
+        left: 10px !important;
+      }
+
+      .philosophy {
+        padding: 35px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Zaib Un Nisa</div>
+    <nav>
+      <a href="index.html">Home</a>
+        <a href="research_domain.html"class="active">Research Domains</a>
+        <a href="publications.html">Publications</a>
+        <a href="my_journey4.html">My Journey</a>
+        <a href="scholarly-services.html">Scholarly Services</a>
+        <a href="acheivements.html">Achievements</a>
+        <a href="abtMe.html">About Me</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <div class="badge">Research Profile</div>
+      <h1>About <span>Me</span></h1>
+      <p>
+        I am a PhD researcher specializing in Artificial Intelligence for Healthcare,
+        biomedical signal processing, deep learning, explainable AI, federated learning,
+        and digital twin technologies. My research focuses on developing intelligent,
+        trustworthy, and clinically meaningful AI systems that can support diagnosis,
+        decision-making, and personalized healthcare.
+        I have more than 8 years of research experience. I am also working as an independent researcher 
+        at "New Uzbekistan University." My research work is mainly around using AI specifically 
+        machine learning and deep learning, for healthcare issues. I have a strong grip on the 
+        interdisciplinary topics that involve deep learning and neurological issues. As a part of PhD research 
+        work, I have developed a model that can use dual data modalities for the detection
+        of neurological disorders. Strong background in interdisciplinary research, reproducible 
+        machine learning, and academic teaching, with motivation to contribute to diverse research 
+        environments emphasizing scientific excellence, mobility, and societal impact.
+      </p>
+    </div>
+
+    <div class="hero-card">
+      <div class="profile-circle">
+        <img src="images/profile.jpeg">
+        </div>
+      <h2>Zaib Un Nisa</h2>
+      <p>
+        PhD Researcher in AI for Healthcare, working at the intersection of
+        EEG analysis, medical intelligence, clinical prediction, and trustworthy machine learning.
+      </p>
+
+      <div class="mini-tags">
+        <span>PhD Researcher</span>
+        <span>Healthcare AI</span>
+        <span>EEG</span>
+        <span>Deep Learning</span>
+        <span>Explainable AI</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <h2>Academic Journey</h2>
+      <p>A research path shaped by learning, persistence, and scientific curiosity</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="dot"></div>
+        <div class="timeline-content">
+          <h3>Gold Medal Achievement</h3>
+          <p>Recognized for academic excellence and strong performance in higher studies.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="dot"></div>
+        <div class="timeline-content">
+          <h3>Master’s Research</h3>
+          <p>Built a strong foundation in computer science, artificial intelligence, and research methodology.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="dot"></div>
+        <div class="timeline-content">
+          <h3>PhD in AI Healthcare</h3>
+          <p>Focused on intelligent models for biomedical data analysis, especially EEG-based harmful brain activity classification.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="dot"></div>
+        <div class="timeline-content">
+          <h3>International Research Direction</h3>
+          <p>Expanded research toward federated learning, digital twins, explainable AI, and clinical decision support systems.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="dot"></div>
+        <div class="timeline-content">
+          <h3>Research Assistant Role</h3>
+          <p>Contributing to applied healthcare AI projects involving cardiovascular prediction and intelligent patient modelling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="philosophy">
+      <h2>Research Philosophy</h2>
+      <p>
+        I believe artificial intelligence should not only achieve high predictive performance,
+        but should also be transparent, reliable, clinically useful, and ethically responsible.
+        My research aims to bridge advanced machine learning with real-world healthcare challenges,
+        enabling intelligent systems that clinicians can understand, trust, and use.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <h2>Research Interests</h2>
+      <p>Areas that define my scientific direction</p>
+    </div>
+
+    <div class="interests">
+      <div class="interest">Artificial Intelligence</div>
+      <div class="interest">Deep Learning</div>
+      <div class="interest">EEG Analysis</div>
+      <div class="interest">Biomedical Signal Processing</div>
+      <div class="interest">Healthcare Informatics</div>
+      <div class="interest">Explainable AI</div>
+      <div class="interest">Federated Learning</div>
+      <div class="interest">Digital Twins</div>
+      <div class="interest">Clinical Decision Support</div>
+      <div class="interest">Medical Imaging</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <h2>Quick Facts</h2>
+      <p>A snapshot of my academic and research profile</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h3>5+</h3>
+        <p>SCIE Publications</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>30+</h3>
+        <p>Peer Reviews</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>4</h3>
+        <p>International Conferences</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>1</h3>
+        <p>Gold Medal</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>PhD</h3>
+        <p>AI Healthcare Research</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>2026</h3>
+        <p>Research Assistant</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <h2>Why I Research</h2>
+      <p>The motivation behind my academic work</p>
+    </div>
+
+    <div class="philosophy">
+      <h2>Purpose Behind the Work</h2>
+      <p>
+        My motivation is to develop intelligent healthcare technologies that improve diagnosis,
+        support clinical decision-making, and contribute to better patient outcomes. I enjoy combining
+        biomedical science with artificial intelligence to solve meaningful healthcare problems,
+        especially where data complexity, uncertainty, and clinical responsibility intersect.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <h2>Current Research Focus</h2>
+      <p>Projects and themes I am actively building around</p>
+    </div>
+
+    <div class="focus-grid">
+      <div class="focus-card">
+        <div class="focus-icon">🧠</div>
+        <h3>Harmful Brain Activity Classification</h3>
+        <p>
+          EEG-based classification using signal processing, deep learning,
+          attention mechanisms, and instability-aware adaptive modelling.
+        </p>
+      </div>
+
+      <div class="focus-card">
+        <div class="focus-icon">❤️</div>
+        <h3>Cardiovascular Digital Twins</h3>
+        <p>
+          Patient-specific modelling for cardiovascular risk prediction,
+          treatment response estimation, and intelligent healthcare analytics.
+        </p>
+      </div>
+
+      <div class="focus-card">
+        <div class="focus-icon">🔐</div>
+        <h3>Privacy-Preserving Federated Learning</h3>
+        <p>
+          Collaborative machine learning frameworks for healthcare data
+          where privacy, security, and ethical data use are essential.
+        </p>
+      </div>
+
+      <div class="focus-card">
+        <div class="focus-icon">🔍</div>
+        <h3>Explainable AI for Healthcare</h3>
+        <p>
+          Building transparent models that provide interpretable and clinically
+          meaningful explanations for AI-based predictions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <h2>Looking Forward</h2>
+      <p>My academic and research direction</p>
+    </div>
+
+    <div class="roadmap">
+      <div class="road-step">
+        <div class="road-num">1</div>
+        <div>
+          <h3>Complete PhD Research</h3>
+          <p>Finalize doctoral research in AI-based biomedical signal analysis and harmful brain activity classification.</p>
+        </div>
+      </div>
+
+      <div class="road-step">
+        <div class="road-num">2</div>
+        <div>
+          <h3>Postdoctoral Research</h3>
+          <p>Advance research in trustworthy AI, digital healthcare, federated learning, and neuro-AI systems.</p>
+        </div>
+      </div>
+
+      <div class="road-step">
+        <div class="road-num">3</div>
+        <div>
+          <h3>International Collaborations</h3>
+          <p>Collaborate with global research groups working on AI, healthcare, biomedical data, and intelligent systems.</p>
+        </div>
+      </div>
+
+      <div class="road-step">
+        <div class="road-num">4</div>
+        <div>
+          <h3>Academic Leadership</h3>
+          <p>Build a strong academic profile through publications, research supervision, teaching, and applied innovation.</p>
+        </div>
+      </div>
+
+      <div class="road-step">
+        <div class="road-num">5</div>
+        <div>
+          <h3>AI for Global Healthcare</h3>
+          <p>Contribute to intelligent healthcare systems that are accurate, ethical, explainable, and accessible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Research Collaborations Are Welcome</h2>
+    <p>
+      I am interested in collaborations related to Artificial Intelligence for Healthcare,
+      EEG analysis, medical decision support, federated learning, digital twins,
+      and explainable AI.
+    </p>
+
+    <a href="research_domain.html" class="btn">Explore My Research Domains</a>
+
+    <div class="quote">
+      “My vision is to build trustworthy, explainable, and privacy-preserving AI systems
+      that transform healthcare through intelligent biomedical data analysis.”
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Zaib Un Nisa | Research Profile
+  </footer>
+
+</body>
+</html>
