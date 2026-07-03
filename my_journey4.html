@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Journey | Zaib Un Nisa</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f4f8ff;
+    color:#0f172a;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:10;
+    padding:20px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,.35);
+}
+
+.logo{
+    font-family:'Playfair Display',serif;
+    color:white;
+    font-size:26px;
+    font-style:italic;
+    font-weight:700;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    margin-left:22px;
+    font-size:14px;
+    font-weight:500;
+}
+
+.navbar a:hover,
+.navbar a.active{
+    color:#60a5fa;
+}
+
+/* HERO */
+
+.hero{
+    min-height:90vh;
+    background:
+        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.55)),
+        url("images/j1.png");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:100px 20px;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.hero-content span{
+    color:#60a5fa;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-weight:700;
+}
+
+.hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:70px;
+    margin:15px 0;
+}
+
+.hero p{
+    max-width:760px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.7;
+    color:#e0f2fe;
+}
+
+/* QUOTE */
+
+.quote{
+    width:90%;
+    max-width:950px;
+    margin:-70px auto 90px;
+    background:white;
+    padding:35px 45px;
+    border-radius:25px;
+    box-shadow:0 20px 50px rgba(0,0,0,.14);
+    position:relative;
+    z-index:4;
+    text-align:center;
+}
+
+.quote p{
+    font-family:'Playfair Display',serif;
+    font-size:28px;
+    color:#0f172a;
+}
+
+.quote span{
+    display:block;
+    margin-top:12px;
+    color:#2563eb;
+    font-weight:600;
+}
+
+/* SECTION */
+
+.road-section{
+    width:92%;
+    max-width:1250px;
+    margin:0 auto;
+    padding:30px 0 90px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title span{
+    color:#2563eb;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-weight:700;
+}
+
+.section-title h2{
+    font-family:'Playfair Display',serif;
+    font-size:48px;
+    margin-top:10px;
+}
+
+/* JOURNEY LAYOUT */
+
+.journey-layout{
+    display:grid;
+    grid-template-columns:1.25fr .75fr;
+    gap:45px;
+    align-items:start;
+}
+
+/* ROAD */
+
+.road{
+    position:relative;
+    padding-bottom:40px;
+}
+
+.road::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    transform:translateX(-50%);
+    width:90px;
+    height:100%;
+    background:linear-gradient(#1e293b,#334155);
+    border-radius:60px;
+    box-shadow:inset 0 0 20px rgba(0,0,0,.45);
+}
+
+.road::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:20px;
+    transform:translateX(-50%);
+    width:6px;
+    height:calc(100% - 40px);
+    background:repeating-linear-gradient(
+        to bottom,
+        #facc15 0,
+        #facc15 35px,
+        transparent 35px,
+        transparent 70px
+    );
+    border-radius:20px;
+}
+
+.traveler{
+    position:sticky;
+    top:115px;
+    margin:0 auto 30px;
+    width:62px;
+    height:62px;
+    background:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:31px;
+    z-index:5;
+    box-shadow:0 12px 35px rgba(0,0,0,.22);
+}
+
+/* MILESTONES */
+
+.milestone{
+    position:relative;
+    display:flex;
+    align-items:center;
+    margin-bottom:95px;
+    z-index:3;
+}
+
+.milestone.left{
+    justify-content:flex-start;
+}
+
+.milestone.right{
+    justify-content:flex-end;
+}
+
+.milestone-card{
+    width:42%;
+    background:white;
+    padding:30px;
+    border-radius:24px;
+    box-shadow:0 15px 40px rgba(0,0,0,.10);
+    transition:.35s;
+}
+
+.milestone-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 25px 55px rgba(0,0,0,.16);
+}
+
+.milestone.left .milestone-card{
+    text-align:right;
+    border-right:6px solid #2563eb;
+}
+
+.milestone.right .milestone-card{
+    text-align:left;
+    border-left:6px solid #2563eb;
+}
+
+.milestone-stone{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    width:95px;
+    height:95px;
+    background:linear-gradient(#f5f1e8,#c9b58f);
+    border-radius:45px 45px 18px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-weight:800;
+    color:#111827;
+    z-index:4;
+    box-shadow:0 12px 30px rgba(0,0,0,.28);
+    border:3px solid white;
+}
+
+.icon{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.year{
+    display:inline-block;
+    background:#dbeafe;
+    color:#1d4ed8;
+    padding:6px 15px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.milestone-card h3{
+    font-family:'Playfair Display',serif;
+    font-size:25px;
+    margin-bottom:10px;
+}
+
+.milestone-card p{
+    color:#475569;
+    font-size:15px;
+    line-height:1.7;
+}
+
+/* MEMORY PANEL */
+
+.memory-panel{
+    position:sticky;
+    top:110px;
+    background:white;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 22px 60px rgba(0,0,0,.16);
+}
+
+.memory-panel img{
+    width:100%;
+    height:330px;
+    object-fit:cover;
+    display:block;
+    transition:.5s ease;
+}
+
+.memory-text{
+    padding:30px;
+    transition:.5s ease;
+}
+
+.memory-text span{
+    color:#2563eb;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.memory-text h3{
+    font-family:'Playfair Display',serif;
+    font-size:30px;
+    margin:8px 0 10px;
+}
+
+.memory-text p{
+    color:#475569;
+    line-height:1.7;
+    font-size:15px;
+}
+
+.memory-panel.fade img,
+.memory-panel.fade .memory-text{
+    opacity:.25;
+}
+
+/* FUTURE */
+
+.future{
+    width:90%;
+    max-width:1000px;
+    margin:30px auto 80px;
+    background:linear-gradient(135deg,#0f172a,#1d4ed8);
+    color:white;
+    padding:60px;
+    border-radius:35px;
+    text-align:center;
+    box-shadow:0 25px 60px rgba(0,0,0,.18);
+}
+
+.future h2{
+    font-family:'Playfair Display',serif;
+    font-size:46px;
+    margin-bottom:15px;
+}
+
+.future p{
+    color:#dbeafe;
+    max-width:780px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.future-goals{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:35px;
+}
+
+.future-goals span{
+    background:white;
+    color:#1d4ed8;
+    padding:12px 22px;
+    border-radius:30px;
+    font-weight:700;
+}
+
+/* FOOTER */
+
+footer{
+    background:#0f172a;
+    color:#cbd5e1;
+    text-align:center;
+    padding:25px;
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+
+    .navbar{
+        position:relative;
+        background:#0f172a;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .navbar div:last-child{
+        text-align:center;
+    }
+
+    .navbar a{
+        margin:0 8px;
+        font-size:13px;
+        display:inline-block;
+        margin-bottom:8px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .quote p{
+        font-size:22px;
+    }
+
+    .journey-layout{
+        grid-template-columns:1fr;
+    }
+
+    .memory-panel{
+        position:relative;
+        top:0;
+        order:-1;
+        margin-bottom:40px;
+    }
+
+    .road::before{
+        left:38px;
+        width:60px;
+    }
+
+    .road::after{
+        left:38px;
+    }
+
+    .traveler{
+        margin-left:8px;
+    }
+
+    .milestone{
+        justify-content:flex-end!important;
+        margin-bottom:70px;
+    }
+
+    .milestone-card{
+        width:78%;
+        text-align:left!important;
+        border-left:6px solid #2563eb!important;
+        border-right:none!important;
+    }
+
+    .milestone-stone{
+        left:38px;
+        width:75px;
+        height:75px;
+        font-size:13px;
+    }
+
+    .section-title h2,
+    .future h2{
+        font-size:36px;
+    }
+
+    .future{
+        padding:40px 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">Zaib Un Nisa</div>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="research_domain.html">Research Domains</a>
+        <a href="publications.html">Publications</a>
+        <a href="my_journey4.html" class="active">My Journey</a>
+        <a href="scholarly-services.html">Scholarly Services</a>
+        <a href="acheivements.html">Achievements</a>
+        <a href="abtMe.html">About Me</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <span>Academic Growth • Research • Recognition</span>
+        <h1>My Academic Journey</h1>
+        <p>
+            From a strong foundation in Computer Science to advanced research in
+            Artificial Intelligence for Healthcare, this journey reflects continuous
+            learning, resilience, research excellence, and scientific growth.
+        </p>
+    </div>
+</section>
+
+<section class="quote">
+    <p>
+        “Every milestone is not only an academic achievement, but also a step of courage,
+        persistence, and discovery.”
+    </p>
+    <span>Walking Towards Research Excellence</span>
+</section>
+
+<section class="road-section">
+
+    <div class="section-title">
+        <span>The Research Road</span>
+        <h2>Milestones & Recognition</h2>
+    </div>
+
+    <div class="journey-layout">
+
+        <div class="road">
+
+            <div class="traveler">🚶</div>
+
+                <div class="milestone left"
+                    data-img="images/b1.png"
+                    data-year="Beginning"
+                    data-title="Every Journey Begins With a Dream"
+                    data-desc="This road represents curiosity, perseverance, and the passion to contribute to Artificial Intelligence for Healthcare.">
+
+                    <div class="milestone-stone">★</div>
+
+                    <div class="milestone-card">
+
+                    <div class="icon">🚶</div>
+
+                    <div class="year">Beginning</div>
+
+                    <h3>The First Step</h3>
+
+                    <p> The road ahead is filled with learning, growth, challenges, and discoveries. 
+                    Every milestone you are about to see represents an important chapter of my academic journey.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="milestone left"
+                 data-img="images/UOL.png"
+                 data-year="2017"
+                 data-title="University of Lahore"
+                 data-desc="This is where my MS journey began, with a growing interest in Computer Science, Artificial Intelligence, and research-based learning.">
+
+                <div class="milestone-stone">2017</div>
+                <div class="milestone-card">
+                    <div class="icon">🎓</div>
+                    <div class="year">2017</div>
+                    <h3>Started Master of Science, University of Lahore</h3>
+                    <p>
+                        Began MS studies in Computer Science with a growing focus on
+                        Artificial Intelligence and research-based learning.
+                    </p>
+                </div>
+            </div>
+
+            <div class="milestone right"
+                 data-img="images/G3.png"
+                 data-year="2020"
+                 data-title="Gold Medal Achievement"
+                 data-desc="Graduated with distinction and received the Gold Medal for academic excellence.">
+
+                <div class="milestone-stone">2020</div>
+                <div class="milestone-card">
+                    <div class="icon">🏅</div>
+                    <div class="year">2020</div>
+                    <h3>Completed MS with Gold Medal</h3>
+                    <p>
+                        Graduated with distinction and received the Gold Medal for
+                        academic excellence.
+                    </p>
+                </div>
+            </div>
+
+            <div class="milestone left"
+                 data-img="images/phd.png"
+                 data-year="December 2022"
+                 data-title="PhD in Artificial Intelligence"
+                 data-desc="Started doctoral research in Artificial Intelligence with a specialization in Healthcare AI.">
+
+                <div class="milestone-stone">2022</div>
+                <div class="milestone-card">
+                    <div class="icon">🧠</div>
+                    <div class="year">December 2022</div>
+                    <h3>Started PhD in Computer Science, Superior University, Lahore</h3>
+                    <p>
+                        Started doctoral research in Artificial Intelligence with a
+                        specialization in Healthcare AI.
+                    </p>
+                </div>
+            </div>
+
+            <div class="milestone right"
+                 data-img="images/EEG.png"
+                 data-year="2024"
+                 data-title="EEG-Based AI Research"
+                 data-desc="Initiated doctoral research on automated harmful brain activity classification using EEG signals and deep learning.">
+
+                <div class="milestone-stone">2024</div>
+                <div class="milestone-card">
+                    <div class="icon">⚡</div>
+                    <div class="year">2024</div>
+                    <h3>Harmful Brain Activity Classification (Thesis)</h3>
+                    <p>
+                        Initiated doctoral research on automated harmful brain activity
+                        classification using EEG signals and deep learning.
+                    </p>
+                </div>
+            </div>
+
+            <div class="milestone left"
+                 data-img="images/NewUniUzb.png"
+                 data-year="November 2025"
+                 data-title="Uzbekistan Collaboration"
+                 data-desc="Started an independent research project in collaboration with researchers in Uzbekistan.">
+
+                <div class="milestone-stone">2025</div>
+                <div class="milestone-card">
+                    <div class="icon">🌍</div>
+                    <div class="year">November 2025</div>
+                    <h3>Independent Research Project, New Uzbekistan University</h3>
+                    <p>
+                        Started an independent research project in collaboration with
+                        researchers in Uzbekistan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="milestone right"
+                 data-img="images/RA.png"
+                 data-year="April 2026"
+                 data-title="Research Assistant"
+                 data-desc="Appointed as a Research Assistant, contributing to AI-driven healthcare research and collaborative scientific projects.">
+
+                <div class="milestone-stone">2026</div>
+                <div class="milestone-card">
+                    <div class="icon">🔬</div>
+                    <div class="year">April 2026</div>
+                    <h3>Research Assistant</h3>
+                    <p>
+                        Appointed as a Research Assistant, contributing to AI-driven
+                        healthcare research and collaborative scientific projects.
+                    </p>
+                </div>
+            </div>
+
+            <div class="milestone left"
+                 data-img="images/CVD.png"
+                 data-year="May 2026"
+                 data-title="Cardiovascular Disease Classification"
+                 data-desc="Began research on AI-based cardiovascular disease classification, prediction, and personalized healthcare systems.">
+
+                <div class="milestone-stone">2026</div>
+                <div class="milestone-card">
+                    <div class="icon">❤️</div>
+                    <div class="year">May 2026</div>
+                    <h3>Cardiovascular Disease Classification</h3>
+                    <p>
+                        Began research on AI-based cardiovascular disease classification,
+                        prediction, and personalized healthcare systems.
+                    </p>
+                </div>
+            </div>
+
+            <div class="milestone right"
+                 data-img="images/thesis.png"
+                 data-year="2026"
+                 data-title="PhD Thesis Submitted"
+                 data-desc="Successfully completed and submitted the PhD thesis for external evaluation.">
+
+                <div class="milestone-stone">2026</div>
+                <div class="milestone-card">
+                    <div class="icon">📘</div>
+                    <div class="year">2026</div>
+                    <h3>PhD Thesis Submitted</h3>
+                    <p>
+                        Successfully completed and submitted the PhD thesis for external
+                        evaluation.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <aside class="memory-panel">
+            <img id="memoryImage" src="images/b1.png" alt="Journey Begins">
+            <div class="memory-text">
+                <span id="memoryYear">The Beginning</span>
+                <h3 id="memoryTitle">The Journey Begins</h3>
+                <p id="memoryDesc">
+                    Every great achievement begins with a dream, 
+                    a vision, and the courage to take the first step.
+                </p>
+            </div>
+        </aside>
+    </div>
+
+</section>
+
+<section class="future">
+    <h2>The Journey Continues...</h2>
+    <p>
+        The next stage of my journey is focused on completing my PhD defense,
+        expanding international research collaborations, and contributing to
+        impactful AI solutions for healthcare, EEG analysis, federated learning,
+        digital health, and personalized medicine.
+    </p>
+
+    <div class="future-goals">
+        <span>🚀 Postdoctoral Research</span>
+        <span>🧠 AI for Healthcare</span>
+        <span>🌍 Global Collaboration</span>
+        <span>🔬 Digital Health</span>
+    </div>
+</section>
+
+<footer>
+    © 2026 Zaib Un Nisa • Artificial Intelligence for Healthcare
+</footer>
+
+<script>
+const milestones = document.querySelectorAll(".milestone");
+const memoryPanel = document.querySelector(".memory-panel");
+const memoryImage = document.getElementById("memoryImage");
+const memoryYear = document.getElementById("memoryYear");
+const memoryTitle = document.getElementById("memoryTitle");
+const memoryDesc = document.getElementById("memoryDesc");
+
+let currentMilestone = null;
+
+function updateMemory(item){
+    if(currentMilestone === item) return;
+    currentMilestone = item;
+
+    memoryPanel.classList.add("fade");
+
+    setTimeout(() => {
+        memoryImage.src = item.dataset.img;
+        memoryYear.textContent = item.dataset.year;
+        memoryTitle.textContent = item.dataset.title;
+        memoryDesc.textContent = item.dataset.desc;
+        memoryPanel.classList.remove("fade");
+    }, 250);
+}
+
+function checkMilestoneReached(){
+    const traveler = document.querySelector(".traveler");
+    const travelerRect = traveler.getBoundingClientRect();
+    const travelerCenter = travelerRect.top + travelerRect.height / 2;
+
+    let closest = null;
+    let closestDistance = Infinity;
+
+    milestones.forEach(item => {
+        const stone = item.querySelector(".milestone-stone");
+        const stoneRect = stone.getBoundingClientRect();
+        const stoneCenter = stoneRect.top + stoneRect.height / 2;
+
+        const distance = Math.abs(travelerCenter - stoneCenter);
+
+        if(distance < closestDistance){
+            closestDistance = distance;
+            closest = item;
+        }
+    });
+
+    if(closest && closestDistance < 45){
+        updateMemory(closest);
+    }
+}
+
+window.addEventListener("scroll", checkMilestoneReached);
+window.addEventListener("load", checkMilestoneReached);
+window.addEventListener("resize", checkMilestoneReached);
+</script>
+
+</body>
+</html>
